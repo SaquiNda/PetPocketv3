@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/vista.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logo4.jpg">
+    <title>Bienvenido</title>
+    <style>
+        #video-upload {
+            border: 4px dashed #6e6c6c;
+            padding: 140px;
+            text-align: center;
+            cursor: pointer;
+
+        }
+
+        #publication-form {
+            margin-top: 40px;
+        }
+
+        #upload-container {
+            max-width: 650px;
+            margin: 120px;
+            margin-top: -40px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sidebar">
+
+        <h1>Cargar video</h1><br>
+        <ul>
+            <li>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/inicio.png" alt="restaurante">Inicio
+                </button>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/public (1).png" alt="restaurante">Publicaciones
+                </button>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/comentario.png" alt="restaurante">Comentario
+                </button>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/estadistica.png" alt="restaurante">Estadistica
+                </button>
+            </li>
+        </ul>
+        <br>
+        <br>
+            <center>
+            <a href="#">Volver a PetPocket</a>
+            <br>
+            <a href="#">Términos del Servicio</a>
+              <br>
+            <a href="#">Políticas de Privacidad</a>
+            
+    </div>
+    <br>
+    <div id="main-content">
+        <h1> </h1>
+        <div id="user-info">
+            <img src="/img/usuarioicono.png">
+            <h2>David</h2>
+            <p>Publicacion</p>
+        </div>
+        <div id="card-container">
+
+            {{!-- <div id="card1">
+                <div id="card-image">
+                    <img src="/img/logo1.jpg" alt="DigitalWaiter" height="60px">
+                </div>
+                <button id="edit-btn"><a href="/login">Editar</a></button>
+                <button id="manage-btn"><a href="/dashboard">Gestionar</a></button>
+            </div> --}}
+
+            <div id="upload-container">
+                <center>
+                    <h2>Subir Video a PetPocket</h2>
+
+                    <div id="video-upload" onclick="document.getElementById('video-input').click()">
+                        <input type="file" id="video-input" accept=".mp4, .webm" onchange="validateFile()">
+                        <label for="video-input" id="file-label">Seleccionar el video para cargar<br>o arrastra el
+                            archivo</label>
+                    </div>
+                    <script>
+                        function validateFile() {
+                            var inputFile = document.getElementById('video-input');
+                            var fileLabel = document.getElementById('file-label');
+
+                            <div id="card2">
+                                <h3>Agregar<br>Publicacion</h3>
+                               
+                                <button><a href="/agregar"><img src="/img/plus.png"></a></button>
+                            </div>
+
+
+                            if (inputFile.files.length > 0) {
+                                var allowedExtensions = /(\.mp4|\.webm)$/i;
+                                if (!allowedExtensions.test(inputFile.value)) {
+                                    alert('Por favor, selecciona un archivo de video válido (mp4 o webm).');
+                                    inputFile.value = ''; // Limpiar el campo de entrada
+                                    fileLabel.innerHTML = 'Seleccionar el video para cargar<br>o arrastra el archivo';
+                                } else {
+                                    fileLabel.innerHTML = 'Archivo seleccionado: ' + inputFile.files[0].name;
+                                }
+                            } else {
+                                // No se seleccionó ningún archivo
+                                fileLabel.innerHTML = 'Seleccionar el video para cargar<br>o arrastra el archivo';
+                            }
+
+                    </script>
+
+                    <!-- Publication Form -->
+                    <form id="publication-form">
+                        <label for="resolution">Resolución (mínimo 720x1280)</label>
+                        <br>
+
+                        <label for="duration">Duración (hasta 10 minutos)</label>
+                        <br>
+
+                        <label for="size">Tamaño del archivo (menos de 10GB)</label>
+                        <br>
+                        <div id="card2">
+                            <button type="button" class="btn btn-light"><a href="/agregar">Aceptar</a></button>
+
+                        </div>
+                    </form>
+                    <!-- Statistics Form -->
+            </div>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/vista.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logo1.jpg">
+    <title>Bienvenido</title>
+</head>
+<body>
+    <div id="sidebar">
+
+        <h1>Mis publicaciones</h1><br>
+        <ul>
+            <li>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/iconocasa.png" alt="restaurante">Inicio
+                </button>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/iconocasa.png" alt="restaurante">Publicaciones
+                </button>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/iconocasa.png" alt="restaurante">Comentario
+                </button>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/iconocasa.png" alt="restaurante">Estadistica
+                </button>
+            </li>
+        </ul>
+        <br>
+        <br>
+            <center>
+            <a href="#">Volver a PetPocket</a>
+            <br>
+            <a href="#">Términos del Servicio</a>
+              <br>
+            <a href="#">Políticas de Privacidad</a>
+            
+    </div>
+    <div id="main-content">
+
+        <h1>  </h1>
+
+        <div id="user-info">
+            <img src="/img/usuarioicono.png">
+            <h2>David</h2>
+           
+        </div>
+
+        <div id="card-container">
+            <form action="menu/lista/" method="get"></form>
+            
+            {{#each lista}}
+            <div id="card1">
+                <div id="card-image">
+                    <img src="/img/logo1.jpg" alt="PetPocket" height="60px">
+                </div>
+                {{restaurantName}}
+                <button id="edit-btn"><a href="/tienda/editar/{{idRestaurante}}">Editar</a></button>
+                <button id="manage-btn"><a href="/dashboard">Gestionar</a></button>
+
+            </div> 
+            {{/each}}
+            <br>
+            <div id="card2">
+                <button id="listo-btn" type="submit"><a href="/agregar"></a>Aceptar</button>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
+

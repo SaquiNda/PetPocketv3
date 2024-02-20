@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/añadir.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logo1.jpg">
+    <title>Bienvenido</title>
+    <style>
+        #upload-container {
+            max-width: 600px;
+
+            margin-top: -50px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sidebar">
+
+        <h1>Datos de publicacion</h1><br>
+        <ul>
+            <li>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/iconocasa.png" alt="restaurante">Inicio
+                </button>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/iconocasa.png" alt="restaurante">Publicaciones
+                </button>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/iconocasa.png" alt="restaurante">Comentario
+                </button>
+                <button id="sidebar-button" style="margin: 10px;">
+                    <img src="/img/iconocasa.png" alt="restaurante">Estadistica
+                </button>
+            </li>
+        </ul>
+        <br>
+        <br>
+        <center>
+            <a href="#">Volver a PetPocket</a>
+            <br>
+            <a href="#">Términos del Servicio</a>
+            <br>
+            <a href="#">Políticas de Privacidad</a>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="main-content">
+
+        <div id="user-info">
+            <img src="/img/usuarioicono.png">
+            <h2>David</h2>
+
+        </div>
+        <div id="upload-container">
+            <center>
+                <h2> </h2>
+            </center>
+        </div>
+        <div id="card-container">
+            <div id="card1">
+
+                <form action="/tienda/agregar" method="post">
+
+                    <label for="nombre">Descripcion</label><br>
+                    <input type="text" id="name" name="restaurantName" placeholder="Perros modelos...">
+                    <span class="require-font"><span class="text"> 0</span>/2200</span>
+
+                    <label for="logo">Portada</label>
+                    <div id="subir-archivo">
+                        <br>
+                        <img id="subir-img-medio" src="img/imagenform.png" alt="imagen">
+                        <h3>Escoger la portada
+                            <input type="file" name="imageRestaurant" id="inputImagen" accept="images/*" required>
+                            <label for="inputImagen">Cargar imagen</label>
+                        </h3>
+                    </div>
+                    <br>
+                    <div id="tipo-de-comida">
+                        <label for="tipoComida">Quien puede ver este video:</label>
+                        <select id="tipoComida" name="tipoComida">
+                            <option value="Tradicional"> Amigos</option>
+                            <option value="Americana"> Publico</option>
+                            <option value="Asiatica">Seguidores, excepto..</option>
+                            <option value="Asiatica">Otros..</option>
+
+                        </select>
+                    </div>
+                    <br>
+                    <label for="location">Ubicacion..</label><br>
+                    <script>
+                        function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            alert("Tu navegador no soporta la geolocalización.");
+        }
+    }
+
+    function showPosition(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        //alert("Tu ubicación actual es: Latitud " + latitude + ", Longitud " + longitude);
+        var locationName = prompt("Ingrese un nombre para tu ubicacion");
+
+        if (locationName) {
+            alert("Tu ubicacion actual es:" + locationName + "(Latitud " + latitude + ", Longitud" + longitude + ")");
+        } else {
+            alert("No se ingreso un nombre para la ubicacion")
+        }
+    }
+
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                alert("El usuario ha denegado el permiso para la geolocalización.");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert("La información de ubicación no está disponible.");
+                break;
+            case error.TIMEOUT:
+                alert("Se ha agotado el tiempo de espera para obtener la ubicación.");
+                break;
+            case error.UNKNOWN_ERROR:
+                alert("Se ha producido un error desconocido.");
+                break;
+        }
+    }
+                </script>
+                <button onclick="getLocation()" >Obtener Ubicacion</button>
+                <div id="locationInfo"></div>
+                    <button id="listo-btn" type="submit">Listo!</button>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+
